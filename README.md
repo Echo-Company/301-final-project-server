@@ -27,3 +27,9 @@ Echo Company
 * Generate National Park base off user input
 
 * Display image connected to National Park
+
+![Park Pal Wireframe](./img/wireframe.png)
+
+## Domain model
+
+![Park Pal Domain](./img/domain.jpg)
