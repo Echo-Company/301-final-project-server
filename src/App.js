@@ -17,6 +17,7 @@ class App extends React.Component {
          <h3><em>parks</em></h3> 
         {this.props.auth0.isAuthenticated ?
           <>
+            <Content />
             <Logout />
             {/* <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button> */}
           </>
@@ -26,7 +27,6 @@ class App extends React.Component {
 
         </header>
         <main>
-          <Content />
         </main>
       </>
     );

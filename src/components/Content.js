@@ -10,7 +10,7 @@ class Content extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            parks: [],
+            parks: ["A local park"],
             showModal: false
         }
     }
@@ -52,10 +52,7 @@ class Content extends React.Component {
 
                 {
                     this.state.parks.length > 0 &&
-                    <>
-                        {/* <Parks
-                        /> */}
-                    </>
+                    this.state.parks.map(p => <p>{p.parkName}</p>)
                 }
                 <Modal show={this.state.showModal} onHide={this.closeModal} style={{ marginTop: "50px" }}>
                     <Modal.Header closeButton>
