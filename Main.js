@@ -9,7 +9,7 @@ import {
   Route
 } from "react-router-dom";
 
-class App extends React.Component {
+class Main extends React.Component {
   render() {
     return (
       <>
@@ -30,4 +30,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Main;
