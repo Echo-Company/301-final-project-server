@@ -46,7 +46,7 @@ class Content extends React.Component {
     }
 
     render() {
-        console.log(this.state.books);
+        console.log(this.state.parks);
         return (
             <>
 
@@ -54,7 +54,6 @@ class Content extends React.Component {
                     this.state.parks.length > 0 &&
                     <>
                         {/* <Parks
-
                         /> */}
                     </>
                 }
@@ -66,7 +65,7 @@ class Content extends React.Component {
                         <Form onSubmit={this.handleSubmit} style={{ width: "40%", margin: "auto" }}>
                             <Form.Group className="mb-3" controlId="formName">
                                 <Form.Label>Title</Form.Label>
-                                <Form.Control type="name" placeholder="Enter book" />
+                                <Form.Control type="name" placeholder="Enter the name" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formDescription">

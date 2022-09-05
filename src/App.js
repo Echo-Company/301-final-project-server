@@ -18,7 +18,7 @@ class App extends React.Component {
         {this.props.auth0.isAuthenticated ?
           <>
             <Logout />
-            <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add Book</Button>
+            {/* <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button> */}
           </>
           :
           <Login />
