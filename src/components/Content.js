@@ -106,7 +106,9 @@ class Content extends React.Component {
 
         return (
             <>
+
             <Button onClick={this.showFavs}>Favs</Button>
+
                 {
                     this.state.parks.length > 0 &&
                     this.state.parks.map((p, ix) =>
