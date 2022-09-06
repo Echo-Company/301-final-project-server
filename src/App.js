@@ -2,7 +2,6 @@ import React from 'react';
 import Content from './components/Content';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import Profile from './components/Profile';
 import Main from './Main';
 import Button from 'react-bootstrap/Button';
 import About from './components/About';
@@ -26,7 +25,6 @@ class App extends React.Component {
       <>
         <div class="position-absolute top-0 end-0">
 
-          <Profile />
         </div>
         <header style={{ textAlign: "center" }}>
           {this.props.auth0.isAuthenticated ?
@@ -50,7 +48,7 @@ class App extends React.Component {
                   <Footer />
                 </Router>
                 <Content />
-                <Logout />
+
               </Main>
               <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button>
             </>
