@@ -7,14 +7,19 @@ import Main from './Main';
 import Button from 'react-bootstrap/Button';
 import { withAuth0 } from '@auth0/auth0-react';
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = ""
+  }
 
   render() {
     return (
       <>
-          <div class="position-absolute top-0 end-0">
-            <Profile />
-          </div>
+        <div class="position-absolute top-0 end-0">
+          <Profile setUser={this.setUser} />
+        </div>
         <header style={{ textAlign: "center" }}>
+
          <h3><em>parks</em></h3> 
         {this.props.auth0.isAuthenticated ?
           <>
