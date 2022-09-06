@@ -14,6 +14,22 @@ class Main extends React.Component {
   render() {
     return (
       <>
+
+        <Router>
+          <Header />
+          <Routes>
+            <Route 
+              exact path="/"
+              element={<Parks />}
+            >
+            <Route 
+              exact path="/SelectedParks"
+              element={<ParksList />}
+            >
+            </Route>
+          <Footer />
+        </Router>
+
                 <Router>
                   <Header />
                   <Routes>
@@ -31,6 +47,7 @@ class Main extends React.Component {
                   </Routes>
                   <Footer />
                 </Router>
+
       </>
     )
   }
