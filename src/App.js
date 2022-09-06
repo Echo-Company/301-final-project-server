@@ -6,24 +6,28 @@ import Profile from './components/Profile';
 import Button from 'react-bootstrap/Button';
 import { withAuth0 } from '@auth0/auth0-react';
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = ""
+  }
 
   render() {
     return (
       <>
-          <div class="position-absolute top-0 end-0">
-            <Profile />
-          </div>
+        <div class="position-absolute top-0 end-0">
+          <Profile setUser={this.setUser} />
+        </div>
         <header style={{ textAlign: "center" }}>
-         <h3><em>parks</em></h3> 
-        {this.props.auth0.isAuthenticated ?
-          <>
-            <Content />
-            <Logout />
-            {/* <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button> */}
-          </>
-          :
-          <Login />
-        }
+          <h3><em>parks</em></h3>
+          {this.props.auth0.isAuthenticated ?
+            <>
+              <Content />
+              <Logout />
+              {/* <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button> */}
+            </>
+            :
+            <Login />
+          }
 
         </header>
         <main>
