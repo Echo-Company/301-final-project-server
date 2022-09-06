@@ -16,11 +16,16 @@ import Header from './Header';
 import Footer from './Footer';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = ""
+  }
 
   render() {
     return (
       <>
         <div class="position-absolute top-0 end-0">
+
           <Profile />
         </div>
         <header style={{ textAlign: "center" }}>
