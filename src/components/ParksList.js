@@ -22,7 +22,7 @@ class ParksList extends React.Component {
         <ListGroup as="ul" numbered style={{ width: "30rem" }}> 
             {
               this.props.parksArray.map((park, idx) =>
-                <ListGroup.Item as="li" key={idx} >{park.parks}</ListGroup.Item>
+                <ListGroup.Item as="li" key={idx} >{park.parks} is a {park.parkCode}</ListGroup.Item>
               )
             }
         </ListGroup> 
