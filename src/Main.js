@@ -20,9 +20,11 @@ class Main extends React.Component {
               exact path="/"
               element={<Parks />}
             >
+            <Route 
+              exact path="/SelectedParks"
+              element={<ParksList />}
+            >
             </Route>
-            {/* PLACEHOLDER: add a route with a path of '/about' that renders the `About` component */}
-          </Routes>
           <Footer />
         </Router>
       </>
