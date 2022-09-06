@@ -49,7 +49,6 @@ class Content extends React.Component {
         console.log(this.state.parks);
         return (
             <>
-
                 {
                     this.state.parks.length > 0 &&
                     this.state.parks.map(p => <p>{p.parkName}</p>)

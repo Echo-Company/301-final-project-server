@@ -5,27 +5,53 @@ import Logout from './components/Logout';
 import Profile from './components/Profile';
 import Main from './Main';
 import Button from 'react-bootstrap/Button';
+import About from './components/About';
 import { withAuth0 } from '@auth0/auth0-react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Header from './Header';
+import Footer from './Footer';
+
 class App extends React.Component {
 
   render() {
     return (
       <>
-          <div class="position-absolute top-0 end-0">
-            <Profile />
-          </div>
+        <div class="position-absolute top-0 end-0">
+          <Profile />
+        </div>
         <header style={{ textAlign: "center" }}>
-         <h3><em>parks</em></h3> 
-        {this.props.auth0.isAuthenticated ?
-          <>
-            <Content />
-            <Logout />
-            <Main />
-            {/* <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button> */}
-          </>
-          :
-          <Login />
-        }
+          {this.props.auth0.isAuthenticated ?
+            <>
+              <Main>
+                <Router>
+                  <Header />
+                  <Routes>
+
+                    <Route
+                      exact path="/"
+                      element={<Content />}
+                    >
+                    </Route>
+                    <Route
+                      exact path="/about"
+                      element={<About />}
+                    >
+                    </Route>
+                  </Routes>
+                  <Footer />
+                </Router>
+                <Content />
+                <Logout />
+              </Main>
+              <Button style={{ marginBottom: "20px" }} variant='outline-secondary' onClick={() => this.setState({ showModal: true })}>Add a place</Button>
+            </>
+            :
+            <Login />
+          }
 
         </header>
         <main>
