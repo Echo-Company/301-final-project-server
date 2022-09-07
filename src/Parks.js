@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import ParksList from './components/ParksList.js';
+import Favorites from './components/Favorites.js';
 import fifty from './data/states.json';
 import activities from './data/activities.json';
 import './parks.css';
@@ -13,8 +14,8 @@ class Parks extends React.Component {
     this.state = {
       parkState: '',
       parkActivity: '',
-      // showError: false,
-      parks: []
+      parks: [],
+      favsParks: [] 
     }
   }
 
@@ -35,16 +36,13 @@ class Parks extends React.Component {
     
   getParkData = async (e) => {
     e.preventDefault();
-    // let selectState = e.target.value;
-    // this.setState({parkState: selectState});
-         
+             
     try {
           let parksUrl = `${process.env.REACT_APP_SERVER}/parks?state=${this.state.parkState}&activities=${this.state.parkActivity}`
           let parksResponse = await axios.get(parksUrl);
           
           this.setState({
             parks: parksResponse.data
-            // parkState: selectState
           });
         
     } catch (err) {
@@ -52,12 +50,57 @@ class Parks extends React.Component {
       }
   }
 
+
+  getFavs = async() => {
+    try {
+      let favsData = await axios.get(`${process.env.REACT_APP_SERVER}/favs`);
+      
+      this.setState({
+        favsParks: favsData.data
+      })
+
+    } catch (error) {
+      console.log('we have an error: ', error.response);
+    }
+  }
+
+
+
+  handleFavsCreate = async(favsInfo) => {
+    console.log('You are inside of handleFavsCreate')
+    console.log('favsInfo', favsInfo);
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER}/favs`, favsInfo);
+      const newFavs = response.data;
+      this.setState({
+        favsParks: [...this.state.favsParks, newFavs],
+      });
+    } catch (error) {
+      console.log('error in favs post: ', error.response);
+    }
+  }
+
+  favsHandleSubmit = (favsPark) => {
+      console.log('favsPark', favsPark);
+      this.handleFavsCreate({
+      parks: favsPark.parks,
+      description: favsPark.description,
+      image: favsPark.image
+    })
+    
+  }  
  
 
+
+  componentDidMount() {
+    this.getFavs();
+  }
+
+ 
   render() {
     
     console.log(this.state);
-    // let objArray = [{value: 'al', state: 'Alabama'}, {value: 'az', state: 'Arizona'}, {value: 'ca', state: 'California'}];
+ 
     let mapFifty =  fifty.map((item, idx) =>
     <option value={item.value} key={idx}>{item.state}</option>
     );
@@ -71,13 +114,6 @@ class Parks extends React.Component {
         <h2>PARKPAL</h2>
 
         <h3>Choose a park to learn more!</h3>
-
-        {/* <Form>
-         <Form.Control as='select' onChange={this.getParkData}>
-          <option>Choose a state to learn more</option>
-          {mapFifty}
-         </Form.Control>
-        </Form> */}
 
         <Form onSubmit={this.getParkData}>
          <Form.Control as='select' onChange={this.handleState}>
@@ -95,7 +131,15 @@ class Parks extends React.Component {
 
                       
       <div>
-        <ParksList parksArray={this.state.parks} />
+        <ParksList 
+          parksArray={this.state.parks}
+          currentPark={this.state.currentPark} 
+          favsHandleSubmit={this.favsHandleSubmit} 
+        />
+         <Favorites 
+            favsArray={this.state.favsParks} 
+         />
+
       </div>
 
 
