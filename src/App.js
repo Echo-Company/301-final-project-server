@@ -1,7 +1,6 @@
 import React from 'react';
 import Content from './components/Content';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import Main from './Main';
 import Button from 'react-bootstrap/Button';
 import About from './components/About';
