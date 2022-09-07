@@ -3,7 +3,6 @@ import Header from './Header';
 import Footer from './Footer';
 import Parks from './Parks';
 // import ParksList from './components/ParksList'
-import About from './components/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   BrowserRouter as Router,
