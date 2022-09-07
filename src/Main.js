@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Parks from './Parks';
+import ParksList from './components/ParksList'
 import About from './components/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -22,11 +23,13 @@ class Main extends React.Component {
               exact path="/"
               element={<Parks />}
             >
+              </Route>
             <Route 
               exact path="/SelectedParks"
               element={<ParksList />}
             >
-            </Route>
+              </Route>
+          </Routes>
           <Footer />
         </Router>
 
