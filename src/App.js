@@ -1,7 +1,6 @@
 import React from 'react';
 import Content from './components/Content';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import Main from './Main';
 import Button from 'react-bootstrap/Button';
 import About from './components/About';
@@ -23,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div class="position-absolute top-0 end-0">
+        <div className="position-absolute top-0 end-0">
 
         </div>
         <header style={{ textAlign: "center" }}>
