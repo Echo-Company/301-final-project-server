@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div class="position-absolute top-0 end-0">
+        <div className="position-absolute top-0 end-0">
 
         </div>
         <header style={{ textAlign: "center" }}>
