@@ -1,11 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Park from './Park';
-import Login from './Login';
 import { withAuth0 } from '@auth0/auth0-react';
 
 class Content extends React.Component {
