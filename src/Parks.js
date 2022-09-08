@@ -90,6 +90,57 @@ class Parks extends React.Component {
     
   }  
  
+  handleDelete = async (favsToDelete) => {
+    try {
+    
+      const response = await axios.delete(`${process.env.REACT_APP_SERVER}/favs/${favsToDelete._id}`);
+      console.log(response.status);
+      const filteredFavs = this.state.favsParks.filter(favs => {
+        return favs._id !== favsToDelete._id;
+      })
+      this.setState({
+        favsParks: filteredFavs
+      })
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  
+  // updateFavs = async(favsToUpdate) => {
+  //   console.log('favsToUpdate', favsToUpdate);
+  //   try {
+  //     let url = `${process.env.REACT_APP_SERVER}/favs/${favsToUpdate._id}`
+  //     let updatedFavs = await axios.put(url, favsToUpdate);
+  //     console.log('url', url);
+      
+  //     let updatedFavsArray = this.state.favsParks.map(existingFavs => {
+  //       return existingFavs._id === favsToUpdate._id
+  //       ? updatedFavs.data
+  //       : existingFavs
+  //     });
+  //     this.setState({favsParks: updatedFavsArray});
+  //   } catch (error){
+  //     console.log('error is favs post: ', error.response);
+  //     }
+  // }
+
+  // handleUpdateSubmit = (event) => {
+  //   event.preventDefault();
+  //   console.log(event.target.idv, 'you are in handleUpdateSubmit');
+  //   let favsToUpdate = {
+  //     plannedVisit: event.target.plannedVisit.value,
+  //     _id: event.target.idv._id,
+  //     __v: event.target.idv.__v 
+  //   }
+
+  //   this.updateFavs(favsToUpdate);
+  //   // this.handleUpdateClose();
+  // }
+
+
+
+
 
 
   componentDidMount() {
@@ -138,6 +189,8 @@ class Parks extends React.Component {
         />
          <Favorites 
             favsArray={this.state.favsParks} 
+            handleDelete={this.handleDelete}
+            // handleUpdateSubmit={this.handleUpdateSubmit}
          />
 
       </div>
