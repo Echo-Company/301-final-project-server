@@ -28,8 +28,8 @@ Echo Company
 
 * Display image connected to National Park
 
-![Park Pal Wireframe](./img/wireframe.png)
+![Park Pal Wireframe](./src/img/wireframe.png)
 
 ## Domain model
 
-![Park Pal Domain](./img/domain.jpg)
+![Park Pal Domain](./src/img/domain.jpg)

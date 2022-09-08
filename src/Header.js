@@ -9,7 +9,7 @@ class Header extends React.Component {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <div>
-        <Navbar.Brand style={{marginRight: '60vw'}}>ParkPal</Navbar.Brand>
+        <Navbar.Brand style={{marginRight: '60vw'}} >ParkPal</Navbar.Brand>
         </div>
         <div style={{
       textAlign: 'right',

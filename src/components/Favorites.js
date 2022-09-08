@@ -1,22 +1,23 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Carousel, Button, Form } from 'react-bootstrap';
+import { Container, Carousel, Button, Form, Accordion} from 'react-bootstrap';
 
 class Favorites extends React.Component {
 
-  
-   render(){
- 
+
+  render() {
+
     let carouselItems = this.props.favsArray.map((favs, idx) => (
+
       
       <Carousel.Item key={idx}>
         <Carousel.Caption>
-          < Form onSubmit = {(e) => this.props.handleUpdateSubmit(e, favs)} >
+          < Form onSubmit={(e) => this.props.handleUpdateSubmit(e, favs)} >
             <Form.Group className="mb-3" controlId="plannedVisit">
               <Form.Check type="checkbox" defaultChecked={favs.plannedVisit} label="Will you visit this year?" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="idv">
-              <Form.Control type="text" value={favs}  hidden readOnly />
+              <Form.Control type="text" value={favs} hidden readOnly />
             </Form.Group>
             <Button variant="primary" type="submit">Submit!</Button>
           </Form >
@@ -28,33 +29,39 @@ class Favorites extends React.Component {
           className="d-block w-100"
           src={favs.image}
           alt="Placeholder"
+          style={{maxHeight: '60vh'}}
         />
       </Carousel.Item>
-      ))
- 
+
+    ))
+
     return (
 
+        <Accordion>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header className='accordionHeader'>Your Favorite Parks</Accordion.Header>
+            <Accordion.Body>
       <>
-      <h2>Your Favorites!</h2>
-      
-      {
-        this.props.favsArray.length > 0 ? (
-        <Container>
-          <Carousel>
-            {carouselItems}
-          </Carousel>
-        </Container>
+              <h2>Your Favorites!</h2>
+
+              {
+                this.props.favsArray.length > 0 ? (
+                  <Container>
+                    <Carousel>
+                      {carouselItems}
+                    </Carousel>
+                  </Container>
         ) : (
           <h3>Please select some new favorites!</h3>
-        )
-      }
-             
+          )
+        }
       </>
-               
-      
-     );
-    }
- }
-     
- export default Favorites;
-   
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
+    );
+  }
+}
+
+export default Favorites;
+
