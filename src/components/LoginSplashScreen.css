@@ -1,7 +1,8 @@
 .loginSplashScreen {
-  background-image: url(../img//backgroundOzarks1.jpg);
+  background-image: url(../img/loginBG.png);
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
