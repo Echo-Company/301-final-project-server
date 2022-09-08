@@ -13,7 +13,7 @@ class Favorites extends React.Component {
         <Carousel.Caption>
           < Form onSubmit = {(e) => this.props.handleUpdateSubmit(e, favs)} >
             <Form.Group className="mb-3" controlId="plannedVisit">
-              <Form.Check type="checkbox" label="Will you visit this year?" />
+              <Form.Check type="checkbox" defaultChecked={favs.plannedVisit} label="Will you visit this year?" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="idv">
               <Form.Control type="text" value={favs}  hidden readOnly />
