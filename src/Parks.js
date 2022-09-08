@@ -50,7 +50,6 @@ class Parks extends React.Component {
       }
   }
 
-
   getFavs = async() => {
     try {
       let favsData = await axios.get(`${process.env.REACT_APP_SERVER}/favs`);
@@ -63,8 +62,6 @@ class Parks extends React.Component {
       console.log('we have an error: ', error.response);
     }
   }
-
-
 
   handleFavsCreate = async(favsInfo) => {
     console.log('You are inside of handleFavsCreate')
@@ -107,46 +104,43 @@ class Parks extends React.Component {
     }
   }
   
-  // updateFavs = async(favsToUpdate) => {
-  //   console.log('favsToUpdate', favsToUpdate);
-  //   try {
-  //     let url = `${process.env.REACT_APP_SERVER}/favs/${favsToUpdate._id}`
-  //     let updatedFavs = await axios.put(url, favsToUpdate);
-  //     console.log('url', url);
+  updateFavs = async(favsToUpdate) => {
+    console.log('favsToUpdate', favsToUpdate);
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/favs/${favsToUpdate._id}`
+      let updatedFavs = await axios.put(url, favsToUpdate);
+      console.log('url', url);
       
-  //     let updatedFavsArray = this.state.favsParks.map(existingFavs => {
-  //       return existingFavs._id === favsToUpdate._id
-  //       ? updatedFavs.data
-  //       : existingFavs
-  //     });
-  //     this.setState({favsParks: updatedFavsArray});
-  //   } catch (error){
-  //     console.log('error is favs post: ', error.response);
-  //     }
-  // }
+      let updatedFavsArray = this.state.favsParks.map(existingFavs => {
+        return existingFavs._id === favsToUpdate._id
+        ? updatedFavs.data
+        : existingFavs
+      });
+      this.setState({favsParks: updatedFavsArray});
+    } catch (error){
+      console.log('error is favs post: ', error.response);
+      }
+  }
 
-  // handleUpdateSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(event.target.idv, 'you are in handleUpdateSubmit');
-  //   let favsToUpdate = {
-  //     plannedVisit: event.target.plannedVisit.value,
-  //     _id: event.target.idv._id,
-  //     __v: event.target.idv.__v 
-  //   }
+  handleUpdateSubmit = (event, favs) => {
+    event.preventDefault();
+    console.log('favs', favs);
+    // console.dir(event.target.idv.value, 'you are in handleUpdateSubmit');
+    let favsToUpdate = {
+      parks: favs.parks,
+      description: favs.description,
+      image: favs.image,
+      plannedVisit: event.target.plannedVisit.checked,
+      _id: favs._id,
+      __v: favs.__v 
+    }
 
-  //   this.updateFavs(favsToUpdate);
-  //   // this.handleUpdateClose();
-  // }
-
-
-
-
-
+    this.updateFavs(favsToUpdate);
+  }
 
   componentDidMount() {
     this.getFavs();
   }
-
  
   render() {
     
@@ -186,13 +180,12 @@ class Parks extends React.Component {
           parksArray={this.state.parks}
           currentPark={this.state.currentPark} 
           favsHandleSubmit={this.favsHandleSubmit} 
+      />
+        <Favorites 
+          favsArray={this.state.favsParks} 
+          handleDelete={this.handleDelete}
+          handleUpdateSubmit={this.handleUpdateSubmit}
         />
-         <Favorites 
-            favsArray={this.state.favsParks} 
-            handleDelete={this.handleDelete}
-            // handleUpdateSubmit={this.handleUpdateSubmit}
-         />
-
       </div>
 
 
