@@ -162,7 +162,7 @@ class Parks extends React.Component {
         <div>
           <img src={homeLogo} alt='ParkPal Logo' style={{ position: "absolute", top: "30%", left: "50%", transform: "translate(-50%, -50%)" }}></img>
         </div>
-        <Form onSubmit={this.getParkData} style={{ position: "absolute", paddingLeft: '1rem', paddingRight: '1rem', top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: 'rgba(41, 60, 80, 0.40)', border: 'solid black 2px', borderRadius: '10px', boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px', width: '30%' }}>
+        <Form onSubmit={this.getParkData} style={{ position: "absolute", paddingLeft: '1rem', paddingRight: '1rem', top: "50%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: 'rgba(41, 60, 80, 0.60)', border: 'solid black 2px', borderRadius: '10px', boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px', width: '30%' }}>
           <Form.Control as='select' onChange={this.handleState} style={{ marginBottom: '1rem', marginTop: '1rem', textAlign: 'center' }}>
             <option>Select State to Explore</option>
             {mapFifty}
@@ -180,7 +180,7 @@ class Parks extends React.Component {
             }} >Explore!</Button>
         </Form>
         <div>
-          <h3 style={{ color: 'white', position: "absolute", padding: '1rem', top: "75%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: 'rgba(41, 60, 80, 0.40)', boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px', width: '30%' }}>Scroll to see parks that match your selection </h3>
+          <h3 style={{ color: 'white', position: "absolute", padding: '1rem', top: "72%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: 'rgba(41, 60, 80, 0.60)', boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px', width: '30%' }}>Scroll to see parks that match your selection </h3>
         </div>
         <div class="page-scroll text-center" style={{ zIndex: '99', position: "absolute", top: "85%", left: "50%", transform: "translate(-50%, -50%)"}}>
         <section href="#" class="to-top"></section>

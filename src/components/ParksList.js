@@ -18,6 +18,7 @@ class ParksList extends React.Component {
         </Carousel.Caption>
         <img
           className="d-block w-100"
+          src={park.image}
           alt="Placeholder"
         />
       </Carousel.Item>
