@@ -157,7 +157,6 @@ class Parks extends React.Component {
 
     return (
       <>
-
         <div className="homepageBackground" style={{ position: 'relative', zIndex: '-99' }}></div>
         <div>
           <img src={homeLogo} alt='ParkPal Logo' style={{ position: "absolute", top: "30%", left: "50%", transform: "translate(-50%, -50%)" }}></img>
@@ -171,13 +170,7 @@ class Parks extends React.Component {
             <option>Choose your Activity</option>
             {mapActivities}
           </Form.Control>
-          <Button id="homeButton" variant="primary" type="submit"
-            style={{
-              width: '120px',
-              backgroundColor: 'green',
-              boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-              border: 'solid white 2px',
-            }} >Explore!</Button>
+          <Button id="homeButton" variant="primary" type="submit">Explore!</Button>
         </Form>
         <div>
           <h3 style={{ color: 'white', position: "absolute", padding: '1rem', top: "72%", left: "50%", transform: "translate(-50%, -50%)", backgroundColor: 'rgba(41, 60, 80, 0.60)', boxShadow: 'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px', width: '30%' }}>Scroll to see parks that match your selection </h3>
@@ -197,8 +190,6 @@ class Parks extends React.Component {
             handleUpdateSubmit={this.handleUpdateSubmit}
           />
         </div>
-
-
       </>
     )
   }

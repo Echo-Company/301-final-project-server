@@ -8,15 +8,15 @@ class ParksList extends React.Component {
 
   let carouselItems = this.props.parksArray.map((park, idx) => (
 
-      <Carousel.Item key={idx}>
+    <Carousel.Item key={idx}>
         <Carousel.Caption>
-          <h3 style={{ backgroundColor: 'teal', borderRadius: '5px', width: 'max-content', margin: 'auto', padding: '5px' }}>When will you visit {park.parks}?</h3>
-          <h3 style={{ backgroundColor: 'teal', borderRadius: '5px', width: 'max-content', margin: 'auto', padding: '5px' }}>{park.description}</h3>
-          <Button key="createFav" onClick={() => this.props.favsHandleSubmit(park)} >Add to Favorites!</Button>
+          <h3 style={{ backgroundColor: 'rgba(32, 31, 32, 0.85)', borderRadius: '10px', boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset", width: 'max-content', margin: 'auto', marginBottom: '2rem', padding: '5px', fontSize: '2rem' }}>{park.parks}</h3>
+          <h3 style={{ backgroundColor: 'rgba(32, 31, 32, 0.80)', boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset", width: '100%', marginTop: '2rem', margin: 'auto', marginBottom: '2rem', padding: '5px', fontSize: '1.5rem' }}>{park.description}</h3>
+          <Button id="homeButton" key="createFav" onClick={() => this.props.favsHandleSubmit(park)} >Add to Favorites!</Button>
          
 
         </Carousel.Caption>
-        <img
+        <img style={{ backgroundColor: 'rgba(32, 31, 32, 0.85)', borderRadius: '10px', boxShadow: "rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset", height: 'auto', maxWidth: '90%', margin: 'auto', marginBottom: '2rem', padding: '5px', fontSize: '2rem' }}
           className="d-block w-100"
           src={park.image}
           alt="Placeholder"
@@ -28,7 +28,6 @@ class ParksList extends React.Component {
     return (
 
       <>
-        <h2>Parks from your selection</h2>
 
         {
           this.props.parksArray.length > 0 ? (
