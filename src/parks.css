@@ -1,5 +1,64 @@
 #homeButton {
-  margin: 10px;
+  box-shadow:inset 0px 1px 0px 0px #a4e271;
+	background:linear-gradient(to bottom, #89c403 5%, #77a809 100%);
+	background-color:#5aee04;
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1.5rem;
+	font-weight:bold;
+	padding:10px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528009;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.08);
+}
+
+#homeButton:hover {
+	background:linear-gradient(to bottom, #77a809 5%, #89c403 100%);
+	background-color:#77a809;
+  border: solid 2px white;
+}
+
+#deleteFavButton {
+  box-shadow:inset 0px 1px 0px 0px #000000;
+	background-color:rgba(32, 31, 32, 0.85);
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(122, 0, 0, 0.596);
+}
+
+#deleteFavButton:hover {
+  border: solid 2px white;
+}
+
+#saveTripButton {
+  box-shadow:inset 0px 1px 0px 0px #000000;
+	background-color:rgba(32, 31, 32, 0.85);
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1rem;
+  margin-top: 1rem;
+  margin-right: 1rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #000000;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(46, 218, 3, 0.596);
+}
+
+#saveTripButton:hover {
+  border: solid 2px white;
 }
 
 .homepageBackground {
